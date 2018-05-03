@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SolrService } from './solr.service';
+import { SolrService, SolrQuery } from './solr.service';
 import { Observable } from 'rxjs/Observable';
 import {IndexDocument} from './indexDocument';
 
@@ -14,6 +14,8 @@ export class AppComponent implements OnInit {
 
   messages: IndexDocument[];
 
+  tweetInput: string;
+
   constructor(private solrService: SolrService) {}
 
   ngOnInit(): void {
@@ -21,6 +23,20 @@ export class AppComponent implements OnInit {
   }
 
   getStuff(): void {
-    this.solrService.query({q: '*:*', fq: ''}).subscribe(data => this.messages = data);
+    const q = new SolrQuery('*:*', '');
+
+    this.solrService.query(q).subscribe(data => this.messages = data);
+  }
+
+  postNewMessage(): void {
+    const doc = new IndexDocument();
+
+    doc.messageText = this.tweetInput;
+
+    this.solrService.update(doc);
+
+    this.tweetInput = '';
+
+    this.messages.push(doc);
   }
 }

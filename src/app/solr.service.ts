@@ -26,19 +26,13 @@ export class SolrService {
     return res.response.docs;
   }
 
-  update(obj: Object | Object[]): void {
+  update(doc: IndexDocument | IndexDocument[]): void {
     const endpoint = this.baseUrl + '/update/json/docs';
 
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
-    headers.append('Accept', 'application/json');
-    headers.append('Access-Control-Allow-Methods', 'POST, GET, OPTIONS, DELETE, PUT');
-    headers.append('Access-Control-Allow-Origin', 'http://localhost:4200/');
-    headers.append('Access-Control-Allow-Headers',
-    'X-Requested-With, Content-Type, Origin, Authorization, Accept, Client-Security-Token, Accept-Encoding');
-
     const httpOptions = { headers: headers };
 
-    this.http.post<Object>(endpoint, JSON.stringify(obj), httpOptions).subscribe(
+    this.http.post<Object>(endpoint + '?commit=true', JSON.stringify(doc), httpOptions).subscribe(
       response => console.log(response),
       err => console.log(err)
     );
@@ -60,7 +54,7 @@ export class SolrService {
 export class SolrQuery {
   constructor(q: string, fq: string)
   constructor(public q: string, public fq: string, public sort?: string, public rows?: number) {
-    this.sort = sort || 'asc';
-    this.rows = rows || 10;
+    this.sort = sort || 'score asc';
+    this.rows = rows || 1000;
   }
 }
