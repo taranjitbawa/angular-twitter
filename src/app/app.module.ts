@@ -4,8 +4,14 @@ import { FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
-import { SolrService } from './solr.service';
+import { FirebaseService } from './firebase.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+import { CONFIG } from './CONFIG';
 
 @NgModule({
   declarations: [
@@ -14,10 +20,13 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
   imports: [
     FormsModule,
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(CONFIG.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [
-    SolrService,
+    FirebaseService,
     HttpClientModule
   ],
   bootstrap: [AppComponent]

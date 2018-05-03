@@ -1,42 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { SolrService, SolrQuery } from './solr.service';
+import { FirebaseService } from './firebase.service';
 import { Observable } from 'rxjs/Observable';
-import {IndexDocument} from './indexDocument';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [SolrService]
+  providers: [FirebaseService]
 })
 export class AppComponent implements OnInit {
   title = 'app';
 
-  messages: IndexDocument[];
+  messages: any;
 
   tweetInput: string;
 
-  constructor(private solrService: SolrService) {}
+  constructor(private firebaseService: FirebaseService) {}
 
   ngOnInit(): void {
     this.getStuff();
   }
 
   getStuff(): void {
-    const q = new SolrQuery('*:*', '');
-
-    this.solrService.query(q).subscribe(data => this.messages = data);
+    this.messages = this.firebaseService.getMessages();
   }
 
   postNewMessage(): void {
-    const doc = new IndexDocument();
-
-    doc.messageText = this.tweetInput;
-
-    this.solrService.update(doc);
 
     this.tweetInput = '';
 
-    this.messages.push(doc);
   }
 }
