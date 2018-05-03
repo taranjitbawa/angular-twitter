@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from './firebase.service';
+import { AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
+import { ChatMessage } from './chatmessage';
 
 @Component({
   selector: 'app-root',
@@ -10,10 +12,8 @@ import { Observable } from 'rxjs/Observable';
 })
 export class AppComponent implements OnInit {
   title = 'app';
-
-  messages: any;
-
-  tweetInput: string;
+  tweetInput = '';
+  messages: Observable<any>;
 
   constructor(private firebaseService: FirebaseService) {}
 
@@ -26,8 +26,8 @@ export class AppComponent implements OnInit {
   }
 
   postNewMessage(): void {
-
+    const newMessage = new ChatMessage(this.tweetInput);
+    this.firebaseService.addMessage(newMessage);
     this.tweetInput = '';
-
   }
 }

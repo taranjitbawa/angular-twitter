@@ -8,8 +8,8 @@
 
 <h2>Messages</h2>
 <ul>
-  <li *ngFor="let m of messages | async">
-    {{ m.text }}
+  <li *ngFor="let m of (messages | async)">
+    {{ m | json }}
   </li>
 </ul>
 
