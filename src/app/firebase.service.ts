@@ -8,11 +8,17 @@ export class FirebaseService {
 
   constructor(private db: AngularFireDatabase) { }
 
-  getMessages(): Observable<any> {
-    return this.db.list('/messages').valueChanges();
+  getMessages(): Observable<ChatMessage[]> {
+    return this.db.list('/messages').valueChanges().map(
+      (messages: any[]) => messages.map(m => this.mapMessage(m))
+    );
+  }
+
+  mapMessage(obj): ChatMessage {
+    return new ChatMessage(obj.text, obj.sender, new Date(obj.dateSent));
   }
 
   addMessage(message: ChatMessage): void {
-    this.db.list('/messages').push(message);
+    this.db.list('/messages').push(message.toJsonObject());
   }
 }

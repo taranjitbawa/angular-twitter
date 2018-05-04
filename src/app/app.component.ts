@@ -13,7 +13,7 @@ import { MatMenu } from '@angular/material';
 export class AppComponent implements OnInit {
   title = 'app';
   tweetInput = '';
-  messages: Observable<any>;
+  messages: Observable<ChatMessage[]>;
 
   constructor(private firebaseService: FirebaseService) {}
 
@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
   }
 
   postNewMessage(): void {
-    const newMessage = new ChatMessage(this.tweetInput);
+    const newMessage = new ChatMessage(this.tweetInput, 'Ryan', new Date());
     this.firebaseService.addMessage(newMessage);
     this.tweetInput = '';
   }
