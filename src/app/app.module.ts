@@ -12,6 +12,8 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { CONFIG } from './CONFIG';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatMenu} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { CONFIG } from './CONFIG';
     HttpClientModule,
     AngularFireModule.initializeApp(CONFIG.firebase),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    BrowserAnimationsModule,
+    MatMenu
   ],
   providers: [
     FirebaseService,
