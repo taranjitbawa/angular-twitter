@@ -13,7 +13,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { CONFIG } from './CONFIG';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatMenu} from '@angular/material';
+import { MatMenuModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,7 @@ import {MatMenu} from '@angular/material';
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     BrowserAnimationsModule,
-    MatMenu
+    MatMenuModule
   ],
   providers: [
     FirebaseService,
