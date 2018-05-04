@@ -14,5 +14,8 @@
 </ul>
 
 <h2>Post New</h2>
-<input [(ngModel)]="tweetInput" placeholder="name">
+<label>Name</label>
+<input [(ngModel)]="username" placeholder="name">
+<label>Message</label>
+<input [(ngModel)]="tweetInput" placeholder="message">
 <button type="button" (click)="postNewMessage()">Post</button>
