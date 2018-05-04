@@ -11,9 +11,9 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
-import { CONFIG } from './CONFIG';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule} from '@angular/material';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import { MatMenuModule} from '@angular/material';
     FormsModule,
     BrowserModule,
     HttpClientModule,
-    AngularFireModule.initializeApp(CONFIG.firebase),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     BrowserAnimationsModule,
