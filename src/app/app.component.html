@@ -6,16 +6,38 @@
   <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
 </div>
 
-<h2>Messages</h2>
-<ul>
-  <li *ngFor="let m of (messages | async)">
-    {{ m.sender }} said: {{ m.text }} at {{ m.dateSent.toLocaleString() }}
-  </li>
-</ul>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>
+      Messages
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+      <ul>
+          <li *ngFor="let m of (messages | async)">
+            {{ m.sender }} said: {{ m.text }} at {{ m.dateSent.toLocaleString() }}
+          </li>
+        </ul>
+  </mat-card-content>
+</mat-card>
 
-<h2>Post New</h2>
-<label>Name</label>
-<input [(ngModel)]="username" placeholder="name">
-<label>Message</label>
-<input [(ngModel)]="tweetInput" placeholder="message">
-<button type="button" (click)="postNewMessage()">Post</button>
+<mat-card class="example-card">
+  <mat-card-header>
+      <mat-card-title>
+        Post
+      </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input matInput [(ngModel)]="username" placeholder="Enter your name" name="username">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input matInput [(ngModel)]="tweetInput" placeholder="Enter your message" name="tweetInput">
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions align="end">
+      <button mat-button (click)="postNewMessage()" class="right">Post</button>
+  </mat-card-actions>
+</mat-card>
