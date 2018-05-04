@@ -5,7 +5,7 @@ export class ChatMessage {
       text: this.text,
       sender: this.sender,
       dateSent: this.dateSent.toString()
-    }
+    };
   }
 
   constructor(public text: string,
