@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import {ChatMessage} from './chatmessage';
+import {ChatMessage} from '../classes/chatmessage';
 import { Observable } from 'rxjs';
 
 @Injectable()

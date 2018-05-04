@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FirebaseService } from './firebase.service';
+import { FirebaseService } from './services/firebase.service';
 import { AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs';
-import { ChatMessage } from './chatmessage';
+import { ChatMessage } from './classes/chatmessage';
 import { MatMenu } from '@angular/material';
 @Component({
   selector: 'app-root',
