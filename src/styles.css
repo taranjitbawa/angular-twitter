@@ -21,3 +21,10 @@
   margin-bottom: 10px;
 }
 
+.scrollable {
+  overflow: auto;
+}
+
+.wordwrap{
+  word-wrap: break-word;
+}

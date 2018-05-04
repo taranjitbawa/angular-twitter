@@ -9,12 +9,10 @@
       Messages
     </mat-card-title>
   </mat-card-header>
-  <mat-card-content>
-      <ul>
-          <li *ngFor="let m of (messages | async)">
-            {{ m.sender }} said: {{ m.text }} at {{ m.dateSent.toLocaleString() }}
-          </li>
-        </ul>
+  <mat-card-content [style.overflow]="'auto'" [style.height.px]="'400'" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+        <mat-card *ngFor="let m of (messages | async)" class="wordwrap">
+          <strong>{{ m.sender }} </strong>: {{ m.text }} at {{ m.dateSent.toLocaleString() }}
+        </mat-card>
   </mat-card-content>
 </mat-card>
 
