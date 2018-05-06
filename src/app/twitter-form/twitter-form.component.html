@@ -15,31 +15,33 @@
 </mat-card>
 
 <mat-card class="example-card bottom-10">
-  <mat-card-header>
-      <mat-card-title>
-        Post
-      </mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <form class="example-form" #twitterForm="ngForm">
-      <mat-form-field class="example-full-width">
-        <input matInput [(ngModel)]="username" placeholder="Enter your name" name="username" #name="ngModel" required>
+  <form class="example-form" #twitterForm="ngForm">
+    <mat-card-header>
+        <mat-card-title>
+          Post
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
 
-      <mat-error [hidden]="name.valid || name.pristine" class="alert alert-danger">
-          username is required
-      </mat-error>
+        <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="username" placeholder="Enter your name" name="username" #name="ngModel" required>
 
-      </mat-form-field>
-      <mat-form-field class="example-full-width" hintLabel="Max 240 characters">
-        <textarea matInput [(ngModel)]="tweetInput" placeholder="Enter your message" name="tweetInput" #message="ngModel" required maxlength="240" (keydown)="showRemainChar()"></textarea>
-        <mat-hint align="end">{{remainingChar}}/240</mat-hint>
-        <mat-error [hidden]="message.valid || message.pristine" class="alert alert-danger">
-            message is required
+        <mat-error [hidden]="name.valid || name.pristine" class="alert alert-danger">
+            username is required
         </mat-error>
-      </mat-form-field>
-    </form>
-  </mat-card-content>
-  <mat-card-actions align="end">
-      <button mat-button [disabled]="twitterForm.invalid" (click)="postNewMessage(twitterForm)" class="right">Post</button>
-  </mat-card-actions>
+
+        </mat-form-field>
+        <mat-form-field class="example-full-width" hintLabel="Max 240 characters">
+          <textarea matInput [(ngModel)]="tweetInput" placeholder="Enter your message" name="tweetInput" #message="ngModel" required maxlength="240" (keydown)="showRemainChar()"></textarea>
+          <mat-hint align="end">{{remainingChar}}/240</mat-hint>
+          <mat-error [hidden]="message.valid || message.pristine" class="alert alert-danger">
+              message is required
+          </mat-error>
+        </mat-form-field>
+        
+    </mat-card-content>
+    <mat-card-actions align="end">
+        <button mat-button [disabled]="twitterForm.invalid" (click)="postNewMessage(twitterForm)" class="right">Post</button>
+    </mat-card-actions>
+  </form>
 </mat-card>
