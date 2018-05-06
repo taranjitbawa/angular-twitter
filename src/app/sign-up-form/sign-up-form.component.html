@@ -1,0 +1,46 @@
+
+  <mat-card class="example-card bottom-10">
+      <mat-card-header>
+          <mat-card-title>
+            Sign Up
+          </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="signUpForm" #form="ngForm" class="example-form">
+          <mat-form-field class="example-full-width">
+              <input matInput id="name"
+                placeholder="Enter your name"
+                formControlName="name">
+              <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                class="alert alert-danger">
+   
+                <mat-error *ngIf="name.errors.required">
+                  Name is required.
+                </mat-error>
+
+                <mat-error *ngIf="name.errors.minlength">
+                  Name must be at least 4 characters long.
+                </mat-error>
+
+              </div>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+              <input matInput id="email"
+                placeholder="Enter your email"
+                formControlName="email">
+              <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                class="alert alert-danger">
+   
+                <mat-error *ngIf="email.errors.required">
+                  Email is required.
+                </mat-error>
+
+                <mat-error *ngIf="email.errors.email">
+                  This is not a valid email address.
+                </mat-error>
+                
+              </div>
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+  </mat-card>
