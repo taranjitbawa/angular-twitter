@@ -41,6 +41,8 @@ top: 8px;
 font-weight: 300;
 font-family: 'Helvetica Neue', Arial;
 text-transform: uppercase;
+color: #FFFFFF;
+mix-blend-mode: difference;
 }
 
 .messageText{
