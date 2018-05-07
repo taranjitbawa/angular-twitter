@@ -38,4 +38,8 @@ export class TwitterFormComponent implements OnInit {
   showRemainChar(): void {
     this.remainingChar = 240 - this.tweetInput.length;
   }
+
+  isOwner(msg: ChatMessage): boolean {
+    return msg.sender === 'Ryan';
+  }
 }
