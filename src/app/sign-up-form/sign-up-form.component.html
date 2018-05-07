@@ -22,7 +22,12 @@
                   Name must be at least 4 characters long.
                 </mat-error>
 
+                <mat-error *ngIf="name.errors.exists">
+                    Username already exists.
+                </mat-error>
+
               </div>
+              <mat-label>Name</mat-label>
           </mat-form-field>
           <mat-form-field class="example-full-width">
               <input matInput id="email"
@@ -40,8 +45,28 @@
                 </mat-error>
 
               </div>
+              <mat-label>Email</mat-label>
           </mat-form-field>
 
+          <mat-form-field class="example-full-width">
+            <input matInput id="color"
+              formControlName="color"
+              class="jscolor"
+              (change)="updateColor($event)">
+            <div *ngIf="color.invalid && (color.dirty || color.touched)"
+              class="alert alert-danger">
+
+              <mat-error *ngIf="color.errors.required">
+                Color is required.
+              </mat-error>
+
+              <mat-error *ngIf="color.errors.minlength">
+                Color must be at least 7 characters long.
+              </mat-error>
+
+            </div>
+            <mat-label>Color</mat-label>
+        </mat-form-field>
       </mat-card-content>
       <mat-card-actions align="end">
           <button mat-button [disabled]="signUpForm.invalid" class="right" (click)="submit()">Submit</button>

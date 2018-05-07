@@ -41,7 +41,7 @@ import { LogoutComponent } from './logout/logout.component';
     MatMenuModule,
     MatInputModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
   ],
   providers: [
     FirebaseService,

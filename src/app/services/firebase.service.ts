@@ -16,11 +16,11 @@ export class FirebaseService {
   }
 
   mapMessage(obj): ChatMessage {
-    return new ChatMessage(obj.text, obj.sender, new Date(obj.dateSent));
+    return new ChatMessage(obj.text, obj.sender, obj.color, new Date(obj.dateSent));
   }
 
   mapUser(obj): User {
-    return new User(obj.name, obj.email);
+    return new User(obj.name, obj.email, obj.color);
   }
 
   addMessage(message: ChatMessage): void {

@@ -8,9 +8,8 @@
         <mat-card *ngFor="let m of (messages | async)" class="wordwrap no-left-padding">
             <mat-card-header>
                 <div mat-card-avatar style="min-height: 50px;
-                background-color: #fa23ba;
                 min-width: 50px;
-                text-align: center;"><span class="sendernameinitial" title="{{ m.sender }}">{{ m.sender | slice:0:1}}</span></div>
+                text-align: center;" [style.background-color]="'#' + m.color"><span class="sendernameinitial" title="{{ m.sender }}">{{ m.sender | slice:0:1}}</span></div>
                 <mat-card-title><span class="messageText">{{ m.text }}</span></mat-card-title>
                 <mat-card-subtitle>{{m.dateSent | date:"long"}}</mat-card-subtitle>
               </mat-card-header>
@@ -24,6 +23,8 @@
           Post
           <br/>
           <mat-hint>Logged in as {{ username }}</mat-hint>
+          <br/>
+          <mat-hint>Color <span [style.background-color]="formattedColor">{{ formattedColor }}</span></mat-hint>
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>

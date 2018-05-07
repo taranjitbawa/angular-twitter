@@ -38,12 +38,25 @@ export class TwitterFormComponent implements OnInit {
       'null';
   }
 
+  get color() {
+    return this.userService.currentUser ?
+      this.userService.currentUser.color :
+      'FFFFFF';
+  }
+
+  get formattedColor() {
+    return '#' + (this.userService.currentUser ?
+      this.userService.currentUser.color :
+      'FFFFFF');
+  }
+
   getStuff(): void {
     this.messages = this.firebaseService.getMessages();
   }
 
   postNewMessage(twitterForm: any): void {
-    const newMessage = new ChatMessage(this.tweetInput, this.username, new Date());
+    const newMessage = new ChatMessage(this.tweetInput,
+      this.username, this.color, new Date());
     this.firebaseService.addMessage(newMessage);
     twitterForm.reset();
   }
