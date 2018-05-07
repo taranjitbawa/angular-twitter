@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './services/user.service';
-import { CookieService } from 'angular2-cookie/core';
+import { CookieService } from './services/cookie.service';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 

@@ -2,7 +2,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { User } from '../classes/user';
 import { FirebaseService } from './firebase.service';
 import { Router } from '@angular/router';
-import { CookieService } from 'angular2-cookie/core';
+import { CookieService } from './cookie.service';
 import { Observable } from 'rxjs';
 import { Subject } from 'rxjs';
 

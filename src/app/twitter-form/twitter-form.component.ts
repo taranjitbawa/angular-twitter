@@ -4,7 +4,7 @@ import { AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs';
 import { ChatMessage } from '../classes/chatmessage';
 import { UserService } from '../services/user.service';
-import { CookieService } from 'angular2-cookie/core';
+import { CookieService } from '../services/cookie.service';
 
 
 @Component({

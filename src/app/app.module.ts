@@ -16,7 +16,7 @@ import { MatCardModule } from '@angular/material/card';
 import { environment } from '../environments/environment';
 import { SignUpFormComponent } from './sign-up-form/sign-up-form.component';
 import { TwitterFormComponent } from './twitter-form/twitter-form.component';
-import { CookieService } from 'angular2-cookie/services/cookies.service';
+import { CookieService } from './services/cookie.service';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
 
