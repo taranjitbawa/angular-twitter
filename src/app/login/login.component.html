@@ -1,9 +1,9 @@
 
   <mat-card class="example-card bottom-10">
-    <form [formGroup]="signUpForm" #form="ngForm" class="example-form">
+    <form [formGroup]="loginForm" #form="ngForm" class="example-form">
       <mat-card-header>
           <mat-card-title>
-            Sign Up
+            Login
           </mat-card-title>
       </mat-card-header>
       <mat-card-content>
@@ -22,21 +22,8 @@
                   Name must be at least 4 characters long.
                 </mat-error>
 
-              </div>
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
-              <input matInput id="email"
-                placeholder="Enter your email"
-                formControlName="email">
-              <div *ngIf="email.invalid && (email.dirty || email.touched)"
-                class="alert alert-danger">
-
-                <mat-error *ngIf="email.errors.required">
-                  Email is required.
-                </mat-error>
-
-                <mat-error *ngIf="email.errors.email">
-                  This is not a valid email address.
+                <mat-error *ngIf="name.errors.doesntexist">
+                  User doesn't exist.
                 </mat-error>
 
               </div>
@@ -44,7 +31,7 @@
 
       </mat-card-content>
       <mat-card-actions align="end">
-          <button mat-button [disabled]="signUpForm.invalid" class="right" (click)="submit()">Submit</button>
+          <button mat-button [disabled]="loginForm.invalid" class="right" (click)="submit()">Login</button>
       </mat-card-actions>
     </form>
   </mat-card>

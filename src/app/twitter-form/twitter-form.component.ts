@@ -3,6 +3,8 @@ import { FirebaseService } from '../services/firebase.service';
 import { AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs';
 import { ChatMessage } from '../classes/chatmessage';
+import { UserService } from '../services/user.service';
+import { CookieService } from 'angular2-cookie/core';
 
 
 @Component({
@@ -15,14 +17,26 @@ import { ChatMessage } from '../classes/chatmessage';
 export class TwitterFormComponent implements OnInit {
   title = 'app';
   tweetInput = '';
-  username = '';
   remainingChar = 240;
   messages: Observable<ChatMessage[]>;
 
-  constructor(private firebaseService: FirebaseService) {}
+  constructor(private firebaseService: FirebaseService,
+    private userService: UserService,
+    private cookieService: CookieService) {}
 
   ngOnInit(): void {
     this.getStuff();
+
+    const currentUser = this.cookieService.get(this.userService.USER_COOKIE_NAME);
+    if (currentUser) {
+      this.userService.login(currentUser);
+    }
+  }
+
+  get username() {
+    return this.userService.currentUser ?
+      this.userService.currentUser.name :
+      'null';
   }
 
   getStuff(): void {
@@ -39,7 +53,11 @@ export class TwitterFormComponent implements OnInit {
     this.remainingChar = 240 - this.tweetInput.length;
   }
 
+  loggedIn(): boolean {
+    return this.userService.isLoggedIn;
+  }
+
   isOwner(msg: ChatMessage): boolean {
-    return msg.sender === 'Ryan';
+    return msg.sender === this.userService.currentUser.name;
   }
 }

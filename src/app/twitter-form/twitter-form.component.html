@@ -10,31 +10,23 @@
                 <div mat-card-avatar style="min-height: 50px;
                 background-color: #fa23ba;
                 min-width: 50px;
-                text-align: center;"><span class="sendernameinitial">{{ m.sender | slice:0:1}}</span></div>
+                text-align: center;"><span class="sendernameinitial" title="{{ m.sender }}">{{ m.sender | slice:0:1}}</span></div>
                 <mat-card-title><span class="messageText">{{ m.text }}</span></mat-card-title>
                 <mat-card-subtitle>{{m.dateSent | date:"long"}}</mat-card-subtitle>
               </mat-card-header>
         </mat-card>
   </mat-card-content>
 </mat-card>
-
-<mat-card class="example-card bottom-10">
+<mat-card class="example-card bottom-10" [style.display]="loggedIn() ? 'block' : 'none'">
   <form class="example-form" #twitterForm="ngForm">
     <mat-card-header>
         <mat-card-title>
           Post
+          <br/>
+          <mat-hint>Logged in as {{ username }}</mat-hint>
         </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-
-        <mat-form-field class="example-full-width">
-          <input matInput [(ngModel)]="username" placeholder="Enter your name" name="username" #name="ngModel" required>
-
-        <mat-error [hidden]="name.valid || name.pristine" class="alert alert-danger">
-            username is required
-        </mat-error>
-
-        </mat-form-field>
         <mat-form-field class="example-full-width" hintLabel="Max 240 characters">
           <textarea matInput [(ngModel)]="tweetInput" placeholder="Enter your message" name="tweetInput" #message="ngModel" required maxlength="240" (keydown)="showRemainChar()"></textarea>
           <mat-hint align="end">{{remainingChar}}/240</mat-hint>

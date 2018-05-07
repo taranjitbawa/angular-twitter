@@ -16,12 +16,15 @@ import { MatCardModule } from '@angular/material/card';
 import { environment } from '../environments/environment';
 import { SignUpFormComponent } from './sign-up-form/sign-up-form.component';
 import { TwitterFormComponent } from './twitter-form/twitter-form.component';
+import { CookieService } from 'angular2-cookie/services/cookies.service';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignUpFormComponent,
-    TwitterFormComponent
+    TwitterFormComponent,
+    LoginComponent
   ],
   imports: [
     FormsModule,
@@ -40,7 +43,8 @@ import { TwitterFormComponent } from './twitter-form/twitter-form.component';
   ],
   providers: [
     FirebaseService,
-    HttpClientModule
+    HttpClientModule,
+    CookieService
   ],
   bootstrap: [AppComponent]
 })
