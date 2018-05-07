@@ -4,10 +4,10 @@
       Messages
     </mat-card-title>
   </mat-card-header>
-  <mat-card-content [style.overflow]="'auto'" [style.height.px]="'400'" #scrollMe [scrollTop]="scrollMe.scrollHeight">
-        <mat-card *ngFor="let m of (messages | async)" class="wordwrap">
-          <mat-card-content>
-            <strong>{{ m.sender }} </strong>: {{ m.text }}
+  <mat-card-content class="commentArea" [style.height.px]="'400'" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+        <mat-card *ngFor="let m of (messages | async)" class="{{ this.isOwner(m) ? 'bubbledRight' : 'bubbledLeft' }}">
+          <mat-card-content class="message">
+            <strong>{{ m.sender }}</strong>: {{ m.text }}
           </mat-card-content>
           <mat-hint align="end">{{m.dateSent | date:"short"}}</mat-hint>
         </mat-card>
@@ -38,7 +38,7 @@
               message is required
           </mat-error>
         </mat-form-field>
-        
+
     </mat-card-content>
     <mat-card-actions align="end">
         <button mat-button [disabled]="twitterForm.invalid" (click)="postNewMessage(twitterForm)" class="right">Post</button>
