@@ -1,4 +1,4 @@
-<mat-card class="example-card bottom-10">
+<mat-card class="example-card bottom-10" [style.display]="isLoggedIn ? 'block' : 'none'">
   <mat-card-header>
     <mat-card-title>
       Messages
@@ -17,7 +17,7 @@
         </mat-card>
   </mat-card-content>
 </mat-card>
-<mat-card class="example-card bottom-10" [style.display]="loggedIn() ? 'block' : 'none'">
+<mat-card class="example-card bottom-10" [style.display]="isLoggedIn ? 'block' : 'none'">
   <form class="example-form" #twitterForm="ngForm">
     <mat-card-header>
         <mat-card-title>

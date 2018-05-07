@@ -20,6 +20,8 @@ export class TwitterFormComponent implements OnInit {
   remainingChar = 240;
   messages: Observable<ChatMessage[]>;
 
+  isLoggedIn: boolean;
+
   constructor(private firebaseService: FirebaseService,
     private userService: UserService,
     private cookieService: CookieService) {}
@@ -27,10 +29,7 @@ export class TwitterFormComponent implements OnInit {
   ngOnInit(): void {
     this.getStuff();
 
-    const currentUser = this.cookieService.get(this.userService.USER_COOKIE_NAME);
-    if (currentUser) {
-      this.userService.login(currentUser);
-    }
+    this.userService.isLoggedIn.subscribe(e => this.isLoggedIn = e);
   }
 
   get username() {
@@ -51,10 +50,6 @@ export class TwitterFormComponent implements OnInit {
 
   showRemainChar(): void {
     this.remainingChar = 240 - this.tweetInput.length;
-  }
-
-  loggedIn(): boolean {
-    return this.userService.isLoggedIn;
   }
 
   isOwner(msg: ChatMessage): boolean {

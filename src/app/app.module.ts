@@ -18,13 +18,15 @@ import { SignUpFormComponent } from './sign-up-form/sign-up-form.component';
 import { TwitterFormComponent } from './twitter-form/twitter-form.component';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignUpFormComponent,
     TwitterFormComponent,
-    LoginComponent
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     FormsModule,

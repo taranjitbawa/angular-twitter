@@ -8,9 +8,13 @@
   <button mat-button [matMenuTriggerFor]="appMenu">Menu</button>
   <mat-menu #appMenu="matMenu">
     <button mat-menu-item routerLink="/twitter" routerLinkActive="active">Twitter</button>
-    <button mat-menu-item routerLink="/sign-up" routerLinkActive="active">Sign Up</button>
-    <button mat-menu-item routerLink="/login" routerLinkActive="active">Login</button>
+    <div [style.display]="isLoggedIn ? 'none' : 'block'">
+      <button mat-menu-item routerLink="/sign-up" routerLinkActive="active">Sign Up</button>
+      <button mat-menu-item routerLink="/login" routerLinkActive="active">Login</button>
+    </div>
+    <div [style.display]="isLoggedIn ? 'block' : 'none'">
+      <button mat-menu-item routerLink="/logout" routerLinkActive="active">Logout</button>
+   </div>
   </mat-menu>
 </mat-card>
-
 <router-outlet></router-outlet>
