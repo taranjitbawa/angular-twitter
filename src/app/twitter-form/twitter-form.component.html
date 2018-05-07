@@ -5,11 +5,15 @@
     </mat-card-title>
   </mat-card-header>
   <mat-card-content [style.overflow]="'auto'" [style.height.px]="'400'" #scrollMe [scrollTop]="scrollMe.scrollHeight">
-        <mat-card *ngFor="let m of (messages | async)" class="wordwrap">
-          <mat-card-content>
-            <strong>{{ m.sender }} </strong>: {{ m.text }}
-          </mat-card-content>
-          <mat-hint align="end">{{m.dateSent | date:"short"}}</mat-hint>
+        <mat-card *ngFor="let m of (messages | async)" class="wordwrap no-left-padding">
+            <mat-card-header>
+                <div mat-card-avatar style="min-height: 50px;
+                background-color: #fa23ba;
+                min-width: 50px;
+                text-align: center;"><span class="sendernameinitial">{{ m.sender | slice:0:1}}</span></div>
+                <mat-card-title><span class="messageText">{{ m.text }}</span></mat-card-title>
+                <mat-card-subtitle>{{m.dateSent | date:"long"}}</mat-card-subtitle>
+              </mat-card-header>
         </mat-card>
   </mat-card-content>
 </mat-card>
@@ -38,7 +42,7 @@
               message is required
           </mat-error>
         </mat-form-field>
-        
+
     </mat-card-content>
     <mat-card-actions align="end">
         <button mat-button [disabled]="twitterForm.invalid" (click)="postNewMessage(twitterForm)" class="right">Post</button>

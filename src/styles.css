@@ -10,7 +10,7 @@
 }
 
 .example-card {
-  max-width: 400px;
+  max-width: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,4 +27,27 @@
 
 .wordwrap{
   word-wrap: break-word;
+}
+
+.mat-card-header-text
+{
+  width: 90%;
+}
+
+.sendernameinitial{
+  font-size: 2em;
+position: relative;
+top: 8px;
+font-family: Helvetica Neue;
+font-weight: 300;
+text-transform: uppercase;
+}
+
+.messageText{
+  font-weight: 300;
+  font-size: 1.8em;
+}
+
+.no-left-padding{
+  padding-left: 0px!important;
 }
