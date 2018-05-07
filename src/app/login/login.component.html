@@ -14,15 +14,15 @@
               <div *ngIf="name.invalid && (name.dirty || name.touched)"
                 class="alert alert-danger">
 
-                <mat-error *ngIf="name.errors.required">
+                <mat-error *ngIf="name.errors['required']">
                   Name is required.
                 </mat-error>
 
-                <mat-error *ngIf="name.errors.minlength">
+                <mat-error *ngIf="name.errors['minlength']">
                   Name must be at least 4 characters long.
                 </mat-error>
 
-                <mat-error *ngIf="name.errors.doesntexist">
+                <mat-error *ngIf="name.errors['doesntexist']">
                   User doesn't exist.
                 </mat-error>
 

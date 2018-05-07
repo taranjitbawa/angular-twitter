@@ -8,7 +8,7 @@ import { CookieService } from '../services/cookie.service';
 
 
 @Component({
-  selector: 'twitter-form',
+  selector: 'app-twitter-form',
   templateUrl: './twitter-form.component.html',
   styleUrls: ['./twitter-form.component.css'],
   providers: [FirebaseService]

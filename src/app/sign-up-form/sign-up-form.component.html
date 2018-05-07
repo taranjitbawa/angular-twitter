@@ -14,15 +14,15 @@
               <div *ngIf="name.invalid && (name.dirty || name.touched)"
                 class="alert alert-danger">
 
-                <mat-error *ngIf="name.errors.required">
+                <mat-error *ngIf="name.errors['required']">
                   Name is required.
                 </mat-error>
 
-                <mat-error *ngIf="name.errors.minlength">
+                <mat-error *ngIf="name.errors['minlength']">
                   Name must be at least 4 characters long.
                 </mat-error>
 
-                <mat-error *ngIf="name.errors.exists">
+                <mat-error *ngIf="name.errors['exists']">
                     Username already exists.
                 </mat-error>
 
@@ -36,11 +36,11 @@
               <div *ngIf="email.invalid && (email.dirty || email.touched)"
                 class="alert alert-danger">
 
-                <mat-error *ngIf="email.errors.required">
+                <mat-error *ngIf="email.errors['required']">
                   Email is required.
                 </mat-error>
 
-                <mat-error *ngIf="email.errors.email">
+                <mat-error *ngIf="email.errors['email']">
                   This is not a valid email address.
                 </mat-error>
 
@@ -56,11 +56,11 @@
             <div *ngIf="color.invalid && (color.dirty || color.touched)"
               class="alert alert-danger">
 
-              <mat-error *ngIf="color.errors.required">
+              <mat-error *ngIf="color.errors['required']">
                 Color is required.
               </mat-error>
 
-              <mat-error *ngIf="color.errors.minlength">
+              <mat-error *ngIf="color.errors['minlength']">
                 Color must be at least 7 characters long.
               </mat-error>
 

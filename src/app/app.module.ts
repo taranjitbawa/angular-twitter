@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing/app-routing.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { FirebaseService } from './services/firebase.service';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -41,7 +41,7 @@ import { LogoutComponent } from './logout/logout.component';
     MatMenuModule,
     MatInputModule,
     MatButtonModule,
-    MatCardModule,
+    MatCardModule
   ],
   providers: [
     FirebaseService,
