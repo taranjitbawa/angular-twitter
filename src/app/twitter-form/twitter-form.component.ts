@@ -27,9 +27,10 @@ export class TwitterFormComponent implements OnInit {
     private cookieService: CookieService) {}
 
   ngOnInit(): void {
-    this.getStuff();
-
+    const currentUser = this.cookieService.get(this.userService.USER_COOKIE_NAME);
+    this.userService.login(currentUser);
     this.userService.isLoggedIn.subscribe(e => this.isLoggedIn = e);
+    this.getStuff();
   }
 
   get username() {
