@@ -14,8 +14,6 @@ export class UserService {
   private loggedInUserSubject: Subject<User[]>;
   private loggedInUser: User;
 
-  private loggedInUserObservable: Observable<User[]>;
-
   public USER_COOKIE_NAME = 'login_username';
 
   constructor(private firebaseService: FirebaseService,
@@ -30,13 +28,7 @@ export class UserService {
       }
     });
 
-    if (user) {
-      this.loggedInUserObservable = this.firebaseService.getUser(user);
-    } else {
-      this.loggedInUserObservable = Observable.of([]);
-    }
-
-    this.loggedInUserObservable.subscribe(e => {
+    this.firebaseService.getUser(user).subscribe(e => {
       if (e.length) {
         this.loggedInUserSubject.next(e);
         this.cookieService.put(this.USER_COOKIE_NAME, user);
