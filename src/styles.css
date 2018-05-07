@@ -31,15 +31,15 @@
 
 .mat-card-header-text
 {
-  width: 90%;
+  width: 80%;
 }
 
 .sendernameinitial{
   font-size: 2em;
 position: relative;
 top: 8px;
-font-family: Helvetica Neue;
 font-weight: 300;
+font-family: 'Helvetica Neue', Arial;
 text-transform: uppercase;
 }
 
