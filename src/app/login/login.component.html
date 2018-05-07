@@ -34,4 +34,5 @@
           <button mat-button [disabled]="loginForm.invalid" class="right" (click)="submit()">Login</button>
       </mat-card-actions>
     </form>
+    <mat-hint>If you don't have an account, <a [routerLink]="['/sign-up']">sign up</a></mat-hint>
   </mat-card>

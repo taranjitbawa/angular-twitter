@@ -32,6 +32,8 @@ export class UserService {
       if (e.length) {
         this.loggedInUserSubject.next(e);
         this.cookieService.put(this.USER_COOKIE_NAME, user);
+      } else {
+        this.loggedInUserSubject.next([]);
       }
     });
   }
