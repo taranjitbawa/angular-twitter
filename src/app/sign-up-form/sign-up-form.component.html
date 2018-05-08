@@ -72,4 +72,5 @@
           <button mat-button [disabled]="signUpForm.invalid" class="right" (click)="submit()">Submit</button>
       </mat-card-actions>
     </form>
+    <mat-hint>Back to <a [routerLink]="['/login']">Login</a></mat-hint>
   </mat-card>

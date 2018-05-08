@@ -5,22 +5,26 @@ import { TwitterFormComponent } from '../twitter-form/twitter-form.component';
 import { LoginComponent } from '../login/login.component';
 import { LogoutComponent } from '../logout/logout.component';
 const routes: Routes = [
-    {
-      path: 'sign-up',
-      component: SignUpFormComponent
-    },
-    {
-      path: 'twitter',
-      component: TwitterFormComponent
-    },
-    {
-      path: 'login',
-      component: LoginComponent
-    },
-    {
-      path: 'logout',
-      component: LogoutComponent
-    }
+  {
+    path: 'sign-up',
+    component: SignUpFormComponent
+  },
+  {
+    path: 'twitter',
+    component: TwitterFormComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'logout',
+    component: LogoutComponent
+  },
+  {
+    path: '',
+    component: TwitterFormComponent
+  }
 ];
 
 @NgModule({
