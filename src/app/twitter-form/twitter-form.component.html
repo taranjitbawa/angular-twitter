@@ -13,7 +13,7 @@
                 max-width: 40px;
                 max-height: 40px;" [style.background-color]="'#' + m.color"><span class="sendernameinitial" title="{{ m.sender }}">{{ m.sender | slice:0:1}}</span></div>
                 <mat-card-title><span class="messageText">{{ m.text }}</span></mat-card-title>
-                <mat-card-subtitle>{{m.dateSent | date:"long"}}</mat-card-subtitle>
+                <mat-card-subtitle style="font-size: 85%;">{{m.dateSent | date:"medium"}}</mat-card-subtitle>
               </mat-card-header>
         </mat-card>
   </mat-card-content>
