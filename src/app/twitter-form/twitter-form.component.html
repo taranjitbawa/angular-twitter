@@ -1,15 +1,17 @@
-<mat-card class="example-card bottom-10" [style.display]="isLoggedIn ? 'block' : 'none'" style="height: 70%;">
+<mat-card class="example-card bottom-10" [style.display]="isLoggedIn ? 'block' : 'none'" style="height: 65%;">
   <mat-card-header>
     <mat-card-title>
       Messages
     </mat-card-title>
   </mat-card-header>
-  <mat-card-content [style.overflow]="'auto'" #scrollMe [scrollTop]="scrollMe.scrollHeight" style="height: 98%;">
+  <mat-card-content [style.overflow]="'auto'" #scrollMe [scrollTop]="scrollMe.scrollHeight" style="height: 96%;">
         <mat-card *ngFor="let m of (messages | async)" class="wordwrap no-left-padding">
             <mat-card-header>
-                <div mat-card-avatar style="min-height: 50px;
-                min-width: 50px;
-                text-align: center;" [style.background-color]="'#' + m.color"><span class="sendernameinitial" title="{{ m.sender }}">{{ m.sender | slice:0:1}}</span></div>
+                <div mat-card-avatar style="    min-height: 5px;
+                min-width: 5px;
+                text-align: center;
+                max-width: 40px;
+                max-height: 40px;" [style.background-color]="'#' + m.color"><span class="sendernameinitial" title="{{ m.sender }}">{{ m.sender | slice:0:1}}</span></div>
                 <mat-card-title><span class="messageText">{{ m.text }}</span></mat-card-title>
                 <mat-card-subtitle>{{m.dateSent | date:"long"}}</mat-card-subtitle>
               </mat-card-header>
@@ -25,9 +27,8 @@
           <mat-error [hidden]="message.valid || message.pristine" class="alert alert-danger">
               message is required
           </mat-error>
-          <button mat-button [disabled]="twitterForm.invalid" (click)="postNewMessage(twitterForm)" class="right">Post</button>
         </mat-form-field>
-
+        <button mat-button [disabled]="twitterForm.invalid" (click)="postNewMessage(twitterForm)" class="right">Post</button>
     </mat-card-content>
     <mat-card-actions align="end">
 
