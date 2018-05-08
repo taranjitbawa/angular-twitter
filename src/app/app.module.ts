@@ -9,7 +9,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatMenuModule} from '@angular/material';
+import { MatMenuModule, MatToolbarModule, MatIconModule} from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -41,7 +41,9 @@ import { LogoutComponent } from './logout/logout.component';
     MatMenuModule,
     MatInputModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatToolbarModule,
+    MatIconModule
   ],
   providers: [
     FirebaseService,
