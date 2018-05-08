@@ -21,14 +21,14 @@
 <mat-card class="example-card bottom-10" [style.display]="isLoggedIn ? 'block' : 'none'" style="height: 10%;">
   <form class="example-form" #twitterForm="ngForm">
     <mat-card-content>
-        <mat-form-field class="example-full-width" hintLabel="Max 240 characters">
+        <mat-form-field class="example-width-70" hintLabel="Max 240 characters">
           <textarea matInput [(ngModel)]="tweetInput" placeholder="Enter your message" name="tweetInput" #message="ngModel" required maxlength="240" (keydown)="showRemainChar()"></textarea>
           <mat-hint align="end">{{remainingChar}}/240</mat-hint>
           <mat-error [hidden]="message.valid || message.pristine" class="alert alert-danger">
               message is required
           </mat-error>
         </mat-form-field>
-        <button mat-button [disabled]="twitterForm.invalid" (click)="postNewMessage(twitterForm)" class="right">Post</button>
+        <button mat-button [disabled]="twitterForm.invalid" (click)="postNewMessage(twitterForm)" class="postbutton">Post</button>
     </mat-card-content>
     <mat-card-actions align="end">
 

@@ -16,6 +16,10 @@ body{
   width: 100%;
 }
 
+.example-width-70{
+width: 65%;
+}
+
 .example-card {
   max-width: 100%;
   display: flex;
@@ -79,4 +83,9 @@ app-twitter-form{
   width: 90%;
   height: 90%;
   display: block;
+}
+
+
+.postbutton{
+    width: 10%!important;
 }
